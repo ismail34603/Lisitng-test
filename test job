@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Add some styling for the job board */
+      .job-board {
+        font-family: Arial, sans-serif;
+        width: 50%;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .job-board h1 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .job-board .job {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-shadow: 2px 2px 5px #ccc;
+      }
+      .job-board .job h3 {
+        margin: 0;
+      }
+      .job-board .job p {
+        margin: 0;
+        font-size: 14px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The job board container -->
+    <div class="job-board">
+      <h1>Job Board</h1>
+      <!-- A placeholder for the job listings -->
+      <div id="jobs"></div>
+    </div>
+
+    <!-- JavaScript to list the jobs -->
+    <script>
+      // An array of job objects
+      var jobs = [
+        {
+          title: "Software Engineer",
+          description: "We are looking for a talented software engineer to join our team. You will work on developing and maintaining our web applications."
+        },
+        {
+          title: "Front-End Developer",
+          description: "We are seeking a front-end developer to join our team. You will be responsible for building and maintaining the user interface of our web applications."
+        },
+        {
+          title: "DevOps Engineer",
+          description: "We are looking for a DevOps engineer to join our team. You will be responsible for building and maintaining our infrastructure and deployment processes."
+        }
+      ];
+
+      // A function to display the jobs on the page
+      function displayJobs() {
+        // Get the job board element
+        var jobBoard = document.querySelector("#jobs");
+
+        // Loop through the jobs and display them on the page
+        jobs.forEach(function(job) {
+          // Create a new job listing element
+          var jobListing = document.createElement("div");
+          jobListing.classList.add("job");
+
+          // Create a title element
+          var title = document.createElement("h3");
+          title.textContent = job.title;
+
+          // Create a description element
+          var description = document.createElement("p");
+          description.textContent = job.description;
+
+          // Add the title and description to the job listing
+          jobListing.appendChild(title);
+          jobListing.appendChild(description);
+
+          // Add the job listing to the job board
+          jobBoard.appendChild(jobListing);
+        });
+      }
+
+      // Call the displayJobs function when the page loads
+      window.addEventListener("load", displayJobs);
+    </script>
+  </body>
+</html>
